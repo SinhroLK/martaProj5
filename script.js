@@ -25,7 +25,8 @@ var init = function () {
   if (loaded) return;
   loaded = true;
   var mobile = window.isDevice;
-  var koef = mobile ? 0.5 : 1;
+  var koef = Math.min(1, window.innerWidth / 800);
+
   var canvas = document.getElementById("heart");
   var ctx = canvas.getContext("2d");
   var width = (canvas.width = koef * innerWidth);
@@ -68,12 +69,13 @@ var init = function () {
   var traceCount = mobile ? 20 : 50;
   var pointsOrigin = [];
   var dr = mobile ? 0.3 : 0.1;
+  var pointScales = mobile ? [200, 160, 120] : [310, 250, 190];
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310, 19, 0, 0));
-  for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250, 15, 0, 0));
-  for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190, 11, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), pointScales[0], 19, 0, 0));
+    for (var i = 0; i < Math.PI * 2; i += dr)
+        pointsOrigin.push(scaleAndTranslate(heartPosition(i), pointScales[1], 15, 0, 0));
+    for (var i = 0; i < Math.PI * 2; i += dr)
+        pointsOrigin.push(scaleAndTranslate(heartPosition(i), pointScales[2], 11, 0, 0));
 
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
