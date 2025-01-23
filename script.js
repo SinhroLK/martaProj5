@@ -68,12 +68,13 @@ var init = function () {
   var traceCount = mobile ? 20 : 50;
   var pointsOrigin = [];
   var dr = mobile ? 0.3 : 0.1;
+  var scaleFactor = mobile ? 0.1 : 1; 
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310, 19, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310 * scaleFactor, 19 * scaleFactor, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250, 15, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250 * scaleFactor, 15 * scaleFactor, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190, 11, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190 * scaleFactor, 11 * scaleFactor, 0, 0));
 
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
@@ -131,7 +132,7 @@ var init = function () {
           if (u.q < 0) u.q += heartPointsCount;
         }
       }
-
+      
       u.vx += (-dx / length) * u.speed;
       u.vy += (-dy / length) * u.speed;
       u.trace[0].x += u.vx;
