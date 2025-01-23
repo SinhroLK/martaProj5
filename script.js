@@ -99,7 +99,7 @@ var init = function () {
       q: ~~(rand() * heartPointsCount),
       D: 2 * (i % 2) - 1,
       force: 0.2 * rand() + 0.7,
-      f: "rgba(51, 204, 255, 0.7)",
+      f: "rgba(255, 105, 180, 0.7)",
       trace: Array.from({ length: traceCount }, () => ({ x, y })),
     };
   }
