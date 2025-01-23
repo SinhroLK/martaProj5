@@ -30,9 +30,7 @@ var init = function () {
   var ctx = canvas.getContext("2d");
   var width = (canvas.width = koef * innerWidth);
   var height = (canvas.height = koef * innerHeight);
-  var minDim = Math.min(width, height);
   var rand = Math.random;
-  var scaleFactor = minDim / 2.5;
 
   ctx.fillStyle = "rgba(0,0,0,1)";
   ctx.fillRect(0, 0, width, height);
@@ -63,35 +61,19 @@ var init = function () {
   window.addEventListener("resize", function () {
     width = canvas.width = koef * innerWidth;
     height = canvas.height = koef * innerHeight;
-    var minDim = Math.min(width, height);
-    var scaleFactor = minDim / 2.5;
-
     ctx.fillStyle = "rgba(0,0,0,1)";
     ctx.fillRect(0, 0, width, height);
-    pointsOrigin = [];
-    for (var i = 0; i < Math.PI * 2; i += dr) {
-      pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor, scaleFactor * 0.06, 0, 0));
-    }
-    for (var i = 0; i < Math.PI * 2; i += dr) {
-      pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor * 0.8, scaleFactor * 0.05, 0, 0));
-    }
-    for (var i = 0; i < Math.PI * 2; i += dr) {
-      pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor * 0.6, scaleFactor * 0.035, 0, 0));
-    }
   });
 
   var traceCount = mobile ? 20 : 50;
   var pointsOrigin = [];
   var dr = mobile ? 0.3 : 0.1;
-  for (var i = 0; i < Math.PI * 2; i += dr) {
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor, scaleFactor * 0.06, 0, 0));
-  }
-  for (var i = 0; i < Math.PI * 2; i += dr) {
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor * 0.8, scaleFactor * 0.05, 0, 0));
-  }
-  for (var i = 0; i < Math.PI * 2; i += dr) {
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), scaleFactor * 0.6, scaleFactor * 0.035, 0, 0));
-  }
+  for (var i = 0; i < Math.PI * 2; i += dr)
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310, 19, 0, 0));
+  for (var i = 0; i < Math.PI * 2; i += dr)
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250, 15, 0, 0));
+  for (var i = 0; i < Math.PI * 2; i += dr)
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190, 11, 0, 0));
 
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
