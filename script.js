@@ -70,11 +70,11 @@ var init = function () {
   var dr = mobile ? 0.3 : 0.1;
   var scaleFactor = mobile ? 0.1 : 1; 
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310 * scaleFactor, 19 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 200 * scaleFactor, 17 * scaleFactor, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250 * scaleFactor, 15 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 140 * scaleFactor, 13 * scaleFactor, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190 * scaleFactor, 11 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90 * scaleFactor, 9 * scaleFactor, 0, 0));
 
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
