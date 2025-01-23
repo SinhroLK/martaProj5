@@ -68,13 +68,12 @@ var init = function () {
   var traceCount = mobile ? 20 : 50;
   var pointsOrigin = [];
   var dr = mobile ? 0.3 : 0.1;
-  var scaleFactor = mobile ? 0.1 : 1; 
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 200 * scaleFactor, 17 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 310, 19, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 140 * scaleFactor, 13 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 250, 15, 0, 0));
   for (var i = 0; i < Math.PI * 2; i += dr)
-    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90 * scaleFactor, 9 * scaleFactor, 0, 0));
+    pointsOrigin.push(scaleAndTranslate(heartPosition(i), 190, 11, 0, 0));
 
   var heartPointsCount = pointsOrigin.length;
   var targetPoints = [];
@@ -100,7 +99,7 @@ var init = function () {
       q: ~~(rand() * heartPointsCount),
       D: 2 * (i % 2) - 1,
       force: 0.2 * rand() + 0.7,
-      f: "rgba(255, 105, 180, 0.7)",
+      f: "rgba(51, 204, 255, 0.7)",
       trace: Array.from({ length: traceCount }, () => ({ x, y })),
     };
   }
@@ -132,7 +131,7 @@ var init = function () {
           if (u.q < 0) u.q += heartPointsCount;
         }
       }
-      
+
       u.vx += (-dx / length) * u.speed;
       u.vy += (-dy / length) * u.speed;
       u.trace[0].x += u.vx;
